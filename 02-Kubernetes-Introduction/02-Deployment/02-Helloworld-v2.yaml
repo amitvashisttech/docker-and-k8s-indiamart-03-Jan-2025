@@ -1,18 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-deployment
+  name: helloworld-2-deployment
   labels:
-    app: helloworld
+    app: helloworld-2
 spec:
-  replicas: 3
+  replicas: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
   selector:
     matchLabels:
-      app: helloworld
+      app: helloworld-2
   template:
     metadata:
       labels:
-        app: helloworld
+        app: helloworld-2
     spec:
       imagePullSecrets:
       - name: regcred
