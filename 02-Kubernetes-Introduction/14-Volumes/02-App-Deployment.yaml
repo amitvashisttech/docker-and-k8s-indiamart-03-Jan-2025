@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: storage-deployment
+  name: stg-deploy
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - mountPath: "/usr/share/nginx/html/sc"
+            - mountPath: "/usr/share/nginx/html/im"
               name: app-storage
       volumes:
         - name: app-storage
